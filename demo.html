@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-left">
+            <img src="/images/Logo-removebg-preview.png" alt="Logo" class="logo">
+            <h1 class="title"><a href="demo.html">Minesweeper.Online</a></h1>
+        </div>
+        <div class="header-right">
+            <button class="btn signup">Sign up</button>
+            <button class="btn login">Log in</button>
+            <div class="theme-toggle">
+                <span id="DarkLight">🌙</span>
+            </div>
+            <div class="language-dropdown">
+                <select>
+                    <option value="en">English</option>
+                    <option value="vi">Vietnamese</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul class="menu">
+                <li><a href="Standardmode.html" target="content-frame" id="Standardmode" class="menu-item">Standard mode</a></li>
+                <li><a href="myprofile.html" target="content-frame" class="menu-item">My profile</a>
+                </li>
+                <li><a href="help.html" target="content-frame" class="menu-item">Help</a></li>
+            </ul>
+        </aside>
+        <article>
+            <iframe name="content-frame" src="index.html" class="content-frame" frameborder="0"></iframe>
+        </article>
+    </div>
+</body>
+<script src="demo.js">
+</script>
+
+</html>

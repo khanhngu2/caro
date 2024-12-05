@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper</title>
+  <link rel="stylesheet" href="Standardmode.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <div class="game-container">
+    <div class="header">
+      <div class="counter" id="min">000</div>
+      <div class="button"><button id="restart" onclick="Begin()">😊</button></div>
+      <div class="counter" id="right-counter">000</div>
+    </div>
+    <div class="container">
+      <div onclick="Start(10,10,15)" class="beginner item">Beginner</div>
+      <div onclick="Start(16,16,40)" class="medium item">Medium</div>
+      <div onclick="Start(30,16,99)" class="hard item">Hard</div>
+    </div>
+    <h1>Game Dò Mìn</h1>
+    <div id="game-board"></div>
+</body>
+<script src="Standardmode.js">
+  window.onload = () => {
+    window.parent.postMessage({ Menu: "Standard mode" }, "*");
+  }
+</script>

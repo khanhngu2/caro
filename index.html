@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <main class="content">
+        <!-- Start New Game Section -->
+        <section class="new-game-section">
+            <h2>Start new game</h2>
+            <div class="game-options">
+                <div class="game-option beginner" onclick="Stand('Beginner')">
+                    <a href="Standardmode.html" target="content-frame">
+                        <img src="/images/beginer.png">
+                        <span>Beginner &#128513</span>
+                    </a>
+                </div>
+                <div class="game-option intermediate" onclick="Stand('Medium')">
+                    <a href="Standardmode.html" target="content-frame">
+                        <img src="/images/Medium.png">
+                        <span>Medium Level &#128545</span>
+                    </a>
+                </div>
+                <div class="game-option expert" onclick="Stand('Hard')">
+                    <a href="Standardmode.html" target="content-frame">
+                        <img src="/images/Hard.png">
+                        <span>Hard Level &#129324</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="rules-section">
+            <h2>Rules</h2>
+            <p>Minesweeper rules are very simple. The board is divided into cells, with mines randomly distributed. To
+                win, you need to open all the cells. The number on a cell shows the number of mines adjacent to it.
+                Using this information, you can determine cells that are safe, and cells that contain mines. Cells
+                suspected of being mines can be marked with a flag using the right mouse button.</p>
+            <p>Read more: <a href="Gameplay.html" target="content-frame">Gameplay</a> <a href="Patterns.html"
+                    target="content-frame">Patterns</a> <a href="Efficiency.html" target="content-frame">Efficiency</a>
+            </p>
+        </section>
+    </main>
+</body>
+<script>
+    var stand = document.querySelectorAll(".game-option a");
+    function Stand(cd) {
+        window.parent.postMessage({ Menu: "Standard mode" }, "*")
+        window.parent.postMessage({ cd: cd }, "*");
+    }
+    window.addEventListener("message", (event) => {
+        var new_game_section = document.querySelector(".new-game-section");
+        var rules_section = document.querySelector(".rules-section");
+        var content = document.querySelector(".content");
+        var game = document.querySelector(".game-options");
+        if (event.data.theme) {
+            const theme = event.data.theme;
+            document.body.style.backgroundColor = theme === "light" ? "var(--Light)" : "var(--Dark)";
+            document.body.style.color = theme === "light" ? "(--Dark)" : "var(--Light)";
+            new_game_section.style.color = theme === "light" ? "var(--Dark)" : "var(--Light)";
+            rules_section.style.color = theme === "light" ? "var(--Dark)" : "var(--Light)";;
+            content.style.backgroundColor = theme === "light" ? "var(--Light)" : "var(--Dark)";
+            game.style.backgroundColor = theme === "light" ? "var(--Light)" : "var(--Dark)";
+        }
+    });
+</script>
+
+</html>
